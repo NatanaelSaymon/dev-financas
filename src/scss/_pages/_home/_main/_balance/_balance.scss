@@ -24,6 +24,22 @@
         border-radius: 0.25rem;
         margin-bottom: 2rem;
         color: $color-secondary;
+
+        &-title {
+            font-weight: normal;
+            font-size: 1rem;
+        }
+
+        &-text {
+            font-size: 2rem;
+            line-height: 3rem;
+            margin-top: 1rem;
+        }
+
+        &--total {
+            background: #49AA26;
+            color: #FFFFFF;
+        }
     }
 }
 // =============================================================================
