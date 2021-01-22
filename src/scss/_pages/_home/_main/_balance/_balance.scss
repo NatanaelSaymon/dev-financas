@@ -12,10 +12,24 @@
 // Estilos
 // =============================================================================
 .balance {
-    margin-top: -8rem;
+    margin-top: -7rem;
 
     &__title {
         color: #FFFFFF;
+
+        &--only {
+            /* TRICK: esse trick retira o elemento da tela porem nao afeita os motores de busca */
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            border: 1px solid red;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
     }
 
     &__card {
@@ -28,6 +42,10 @@
         &-title {
             font-weight: normal;
             font-size: 1rem;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
 
         &-text {
@@ -45,6 +63,15 @@
 // =============================================================================
 // Media Queries
 // =============================================================================
+
+
+@media screen and (min-width: 800px) {
+    .balance {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+    }   
+}
 
 // =============================================================================
 // Imports
