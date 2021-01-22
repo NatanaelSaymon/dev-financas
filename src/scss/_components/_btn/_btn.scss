@@ -1,0 +1,10 @@
+//Componente: btn
+
+.btn {
+    color: $bg-header;
+
+    &:hover,
+    &:focus {
+        color: #3dd705;
+    }
+}
