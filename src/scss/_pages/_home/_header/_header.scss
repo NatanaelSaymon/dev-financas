@@ -12,7 +12,7 @@
 // Estilos
 // =============================================================================
 .header {
-    background: linear-gradient(-45deg, #272727 55%, $bg-header 0) no-repeat; /* O 0(zero) serve para fazer o efeito de corte*/
+    background: linear-gradient(-45deg, #272727 55%, $color-primary 0) no-repeat; /* O 0(zero) serve para fazer o efeito de corte*/
     padding: 6rem 0 10rem;
 
     &__logo {

@@ -12,11 +12,9 @@ $padding-table: 1rem 2rem;
 // Estilos
 // =============================================================================
 .transactions__table {
-    //display: block;
     width: 100%;
     border-spacing: 0 0.5rem; /*0 no eixo vertical e 0.5 no eixo horizontal*/
-    color: $color-secondary;
-    //overflow-x: auto;
+    color: $text-color;
     cursor: pointer;
 
     thead tr th:first-child,
@@ -52,12 +50,6 @@ $padding-table: 1rem 2rem;
         background: #FFFFFF;
         padding: $padding-table;
     }
-
-    // @media screen and (max-width: 470px) {
-    //     th, td {
-    //         padding: 0;
-    //     }
-    // }
 }
 
 // =============================================================================

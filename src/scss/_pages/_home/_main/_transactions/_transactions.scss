@@ -12,27 +12,9 @@
 // Estilos
 // =============================================================================
 .transactions {
-    &__title {
-
-        &--only {
-            /* TRICK: esse trick retira o elemento da tela porem nao afeita os motores de busca */
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            border: 1px solid red;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip: rect(0, 0, 0, 0);
-            white-space: nowrap;
-            border-width: 0;
-        }
-    }
-
-    &__btn {
-        display: inline-block;
-        margin-bottom: 1.8rem;
-    }
+    width: 100%;
+    display: block;
+    overflow-x: auto; /* Cria uma barra de rolagem no eixo X */
 }
 // =============================================================================
 // Media Queries

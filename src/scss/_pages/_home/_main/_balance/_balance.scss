@@ -16,20 +16,6 @@
 
     &__title {
         color: #FFFFFF;
-
-        &--only {
-            /* TRICK: esse trick retira o elemento da tela porem nao afeita os motores de busca */
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            border: 1px solid red;
-            padding: 0;
-            margin: -1px;
-            overflow: hidden;
-            clip: rect(0, 0, 0, 0);
-            white-space: nowrap;
-            border-width: 0;
-        }
     }
 
     &__card {
@@ -37,7 +23,7 @@
         padding: 1.2rem 2rem;
         border-radius: 0.25rem;
         margin-bottom: 2rem;
-        color: $color-secondary;
+        color: $text-color;
 
         &-title {
             font-weight: normal;
