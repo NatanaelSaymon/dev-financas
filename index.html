@@ -22,7 +22,7 @@
         <main class="main">
             <div class="container container--large">
                 <section class="balance">
-                    <h2 class="balance__title balance__title--only title">Balanco</h2>
+                    <h2 class="balance__title sr-only title">Balanco</h2>
     
                     <div class="balance__card">
                         <h3 class="balance__card-title">
@@ -50,9 +50,9 @@
                 </section>
     
                 <section class="transactions">
-                    <h2 class="transactions__title transactions__title--only title">Transacoes</h2>
+                    <h2 class="transactions__title sr-only title">Transacoes</h2>
 
-                    <a href="#" class="transactions__btn btn">+ Nova Transação</a>
+                    <a href="#" class="transactions__btn btn--new btn">+ Nova Transação</a>
 
                     <table class="transactions__table">
                         <thead>
@@ -87,6 +87,34 @@
                 </section>
             </div>
         </main>
+
+        <div class="modal-transaction active">
+            <div class="modal-transaction__content">
+                <h3 class="modal-transaction__title">Nova Transação</h3>
+                <form action="" id="modal-transaction__form" class="modal-transaction__form">
+                    <div class="modal-transaction__item">
+                        <label for="description" class="modal-transaction__field sr-only">Descrição</label>
+                        <input type="text" id="description" class="modal-transaction__input" placeholder="Descrição">
+                    </div>
+                    <div class="modal-transaction__item">
+                        <label for="valor" class="modal-transaction__field sr-only">Valor</label>
+                        <input type="number" step="0.01" id="valor" class="modal-transaction__input" placeholder="0,00">
+                        <small class="modal-transaction__help">
+                            Use o sinal - (negativo) para despesas e, (vírgula) para casas decimais.
+                        </small>
+                    </div>
+                    <div class="modal-transaction__item">
+                        <label for="date" class="modal-transaction__field sr-only">Date</label>
+                        <input type="date" id="date" class="modal-transaction__input">
+                    </div>
+
+                    <div class="modal-transaction__actions">
+                        <a href="#" class="modal-transaction__btn btn--cancel btn">Cancelar</a>
+                        <button class="modal-transaction__btn btn--save btn">Salvar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
 
         <footer class="footer">
             <p class="footer__text">dev.finance$</p>

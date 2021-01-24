@@ -1,0 +1,76 @@
+// # Modal
+
+// =============================================================================
+// Variaveis
+// =============================================================================
+
+// =============================================================================
+// Placeholders
+// =============================================================================
+
+// =============================================================================
+// Estilos
+// =============================================================================
+.modal-transaction {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+
+  position: fixed;
+  top: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  opacity: 0; /*Some da tela, porem ainda ocupa o espaço que tem*/
+  visibility: hidden; /*Some totalmente com o item, retirando o espaço.*/
+
+  &.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &__content {
+    background: #f0f2f5;
+    padding: 2.4rem;
+  }
+
+  &__form {
+    max-width: 500px;
+  }
+
+  &__item {
+    margin: 10px 0;
+  }
+
+  &__input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+  }
+
+  &__help {
+    opacity: 0.4;
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__btn {
+    width: 48%;
+  }
+}
+// =============================================================================
+// Media Queries
+// =============================================================================
+
+// =============================================================================
+// Imports
+// =============================================================================
+
+
