@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Dev.finance$</title>
+        <title>dev.finance$</title>
         <!-- Font Awesome -->
         <script src="https://kit.fontawesome.com/ecc011f1dd.js" crossorigin="anonymous"></script>
         <!-- Google fonts -->
@@ -52,7 +52,7 @@
                 <section class="transactions">
                     <h2 class="transactions__title sr-only title">Transacoes</h2>
 
-                    <a href="#" class="transactions__btn btn--new btn">+ Nova Transação</a>
+                    <a href="#" class="transactions__btn btn--new btn" onclick="Modal.open()">+ Nova Transação</a>
 
                     <table class="transactions__table">
                         <thead>
@@ -88,7 +88,7 @@
             </div>
         </main>
 
-        <div class="modal-transaction active">
+        <div class="modal-transaction">
             <div class="modal-transaction__content">
                 <h3 class="modal-transaction__title">Nova Transação</h3>
                 <form action="" id="modal-transaction__form" class="modal-transaction__form">
@@ -109,7 +109,7 @@
                     </div>
 
                     <div class="modal-transaction__actions">
-                        <a href="#" class="modal-transaction__btn btn--cancel btn">Cancelar</a>
+                        <a href="#" class="modal-transaction__btn btn--cancel btn" onclick="Modal.close()">Cancelar</a>
                         <button class="modal-transaction__btn btn--save btn">Salvar</button>
                     </div>
                 </form>
@@ -122,7 +122,7 @@
 
 
 
-        <!--Script-->
+        <!--Script da pagina-->
         <script src="./src/js/script.js"></script>
 
     </body>
