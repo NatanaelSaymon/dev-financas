@@ -29,12 +29,27 @@
   &.active {
     opacity: 1;
     visibility: visible;
+
+   & .modal-transaction__content {
+      animation: animaModal 1s forwards;
+  
+      @keyframes animaModal {
+        0% {
+          transform: translate3d(0, -100px, 0);
+        }
+    
+        100% {
+          transform: translate3d(0, 0, 0);
+        }
+      }
+    }
   }
 
   &__content {
     background: #f0f2f5;
     padding: 2.4rem;
   }
+
 
   &__form {
     max-width: 500px;
