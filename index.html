@@ -29,7 +29,9 @@
                             <span class="balance__card-title-span">Entradas</span>
                             <img src="./src/img/svg/income.svg" alt="Imagens de Entradas" class="balance__card-title-img">
                         </h3>
-                        <p class="balance__card-text">R$ 5.000,00</p>
+                        <p class="balance__card-text" id="incomeDisplay">
+                            <!--Valores inseridos com javascript-->
+                        </p>
                     </div>
     
                     <div class="balance__card">
@@ -37,7 +39,9 @@
                             <span class="balance__card-title-span">Saida</span>
                             <img src="./src/img/svg/minus.svg" alt="Imagens de Saida" class="balance__card-title-img">
                         </h3>
-                        <p class="balance__card-text">R$ 2.000,00</p>
+                        <p class="balance__card-text"  id="expenseDisplay">
+                            <!--Valores inseridos com javascript-->
+                        </p>
                     </div>
     
                     <div class="balance__card balance__card--total">
@@ -45,14 +49,16 @@
                             <span class="balance__card-title-span">Total</span>
                             <img src="./src/img/svg/total.svg" alt="Imagens de Total" class="balance__card-title-img">
                         </h3>
-                        <p class="balance__card-text">R$ 3.000,00</p>
+                        <p class="balance__card-text"  id="totalDisplay">
+                            <!--Valores inseridos com javascript-->
+                        </p>
                     </div>
                 </section>
     
                 <section class="transactions">
                     <h2 class="transactions__title sr-only title">Transacoes</h2>
 
-                    <a href="#" class="transactions__btn btn--new btn" onclick="Modal.open()">+ Nova Transação</a>
+                    <a href="#" class="transactions__btn btn--new btn" onclick="Modal.openClose()">+ Nova Transação</a>
 
                     <table class="transactions__table">
                         <thead>
@@ -64,24 +70,26 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>Luz</td>
-                                <td>R$ 200,00</td>
-                                <td>10/01/2021</td>
-                                <td><img src="./src/img/svg/minus.svg" alt="Remover Transação"></td>
-                            </tr>
-                            <tr>
-                                <td>Internet</td>
-                                <td>R$ 100,00</td>
-                                <td>10/01/2021</td>
-                                <td><img src="./src/img/svg/minus.svg" alt="Remover Transação"></td>
-                            </tr>
-                            <tr>
-                                <td>Freela</td>
-                                <td>R$ 5.000,00</td>
-                                <td>10/01/2021</td>
-                                <td><img src="./src/img/svg/minus.svg" alt="Remover Transação"></td>
-                            </tr>
+                            <!-- 
+                                <tr>
+                                    <td class="description">Luz</td>
+                                    <td class="expense">- R$ 200,00</td>
+                                    <td class="date">10/01/2021</td>
+                                    <td><img src="./src/img/svg/minus.svg" alt="Remover Transação"></td>
+                                </tr>
+                                <tr>
+                                    <td class="description">Internet</td>
+                                    <td class="expense">- R$ 100,00</td>
+                                    <td class="date">10/01/2021</td>
+                                    <td><img src="./src/img/svg/minus.svg" alt="Remover Transação"></td>
+                                </tr>
+                                <tr>
+                                    <td class="description">Freela</td>
+                                    <td class="income">R$ 5.000,00</td>
+                                    <td class="date">10/01/2021</td>
+                                    <td><img src="./src/img/svg/minus.svg" alt="Remover Transação"></td>
+                                </tr> 
+                            -->
                         </tbody>
                     </table>
                 </section>
@@ -109,7 +117,7 @@
                     </div>
 
                     <div class="modal-transaction__actions">
-                        <a href="#" class="modal-transaction__btn btn--cancel btn" onclick="Modal.close()">Cancelar</a>
+                        <a href="#" class="modal-transaction__btn btn--cancel btn" onclick="Modal.openClose()">Cancelar</a>
                         <button class="modal-transaction__btn btn--save btn">Salvar</button>
                     </div>
                 </form>
