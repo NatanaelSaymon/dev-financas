@@ -30,7 +30,7 @@
                             <img src="./src/img/svg/income.svg" alt="Imagens de Entradas" class="balance__card-title-img">
                         </h3>
                         <p class="balance__card-text" id="incomeDisplay">
-                            <!--Valores inseridos com javascript-->
+                            0<!--Valores inseridos com javascript-->
                         </p>
                     </div>
     
@@ -40,7 +40,7 @@
                             <img src="./src/img/svg/minus.svg" alt="Imagens de Saida" class="balance__card-title-img">
                         </h3>
                         <p class="balance__card-text"  id="expenseDisplay">
-                            <!--Valores inseridos com javascript-->
+                            0<!--Valores inseridos com javascript-->
                         </p>
                     </div>
     
@@ -50,7 +50,7 @@
                             <img src="./src/img/svg/total.svg" alt="Imagens de Total" class="balance__card-title-img">
                         </h3>
                         <p class="balance__card-text"  id="totalDisplay">
-                            <!--Valores inseridos com javascript-->
+                            0<!--Valores inseridos com javascript-->
                         </p>
                     </div>
                 </section>
@@ -99,21 +99,21 @@
         <div class="modal-transaction">
             <div class="modal-transaction__content">
                 <h3 class="modal-transaction__title">Nova Transação</h3>
-                <form action="" id="modal-transaction__form" class="modal-transaction__form">
+                <form action="" onsubmit="Form.submit(event)" id="modal-transaction__form" class="modal-transaction__form">
                     <div class="modal-transaction__item">
                         <label for="description" class="modal-transaction__field sr-only">Descrição</label>
-                        <input type="text" id="description" class="modal-transaction__input" placeholder="Descrição">
+                        <input type="text" id="description" name="description" class="modal-transaction__input" placeholder="Descrição">
                     </div>
                     <div class="modal-transaction__item">
                         <label for="valor" class="modal-transaction__field sr-only">Valor</label>
-                        <input type="number" step="0.01" id="valor" class="modal-transaction__input" placeholder="0,00">
+                        <input type="number" step="0.01" id="valor" name="valor" class="modal-transaction__input" placeholder="0,00">
                         <small class="modal-transaction__help">
                             Use o sinal - (negativo) para despesas e, (vírgula) para casas decimais.
                         </small>
                     </div>
                     <div class="modal-transaction__item">
                         <label for="date" class="modal-transaction__field sr-only">Date</label>
-                        <input type="date" id="date" class="modal-transaction__input">
+                        <input type="date" id="date" name="date" class="modal-transaction__input">
                     </div>
 
                     <div class="modal-transaction__actions">
