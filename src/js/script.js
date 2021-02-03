@@ -4,6 +4,7 @@ const Modal = {
     }
 }
 
+//Salvando os dados no localStorage
 const Storage = {
     get () {
         return JSON.parse(localStorage.getItem("dev.finances:transactions")) || []
@@ -15,7 +16,7 @@ const Storage = {
 }
 
 
-// const transactions = [
+// const transactions = [ // Os dados eram puxados dessa variavel
 //     {
 //         // id: 1,
 //         description: "Agua",
@@ -116,9 +117,10 @@ const Dom = {
             <td class="${status}">${value}</td>
             <td class="date">${transaction.date}</td>
             <td>
-            <img onclick="Transaction.remove(${index})" src="./src/img/svg/minus.svg" alt="Remover Transação">
+                <img onclick="Transaction.remove(${index})" src="./src/img/svg/minus.svg" alt="Remover Transação">
             </td>
         `
+
         return html
     },
 

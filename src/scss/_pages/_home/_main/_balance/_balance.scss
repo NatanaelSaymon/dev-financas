@@ -38,7 +38,12 @@
             font-size: 2rem;
             line-height: 3rem;
             margin-top: 1rem;
+
+            &--bold {
+                font-weight: 700;
+            }
         }
+
 
         &--total {
             background: #49AA26;
