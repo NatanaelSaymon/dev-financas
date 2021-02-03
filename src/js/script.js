@@ -4,45 +4,62 @@ const Modal = {
     }
 }
 
-const transactions = [
-    {
-        // id: 1,
-        description: "Agua",
-        value: -10000,
-        date: "29/01/2021"
+const Storage = {
+    get () {
+        return JSON.parse(localStorage.getItem("dev.finances:transactions")) || []
     },
-    {
-        // id: 2,
-        description: "Suellen",
-        value: 300012,
-        date: "29/01/2021"
-    },
-    {
-        // id: 3,
-        description: "Internet",
-        value: -10000,
-        date: "29/01/2021"
-    },
-    {
-        // id: 4,
-        description: "Servico de Streaming",
-        value: -10000,
-        date: "29/01/2021"
-    },
-    {
-        // id: 5,
-        description: "Natan",
-        value: 104500,
-        date: "30/01/2021"
-    },
-]
+
+    set(transactions) {
+        localStorage.setItem("dev.finances:transactions", JSON.stringify(transactions))
+    }
+}
+
+
+// const transactions = [
+//     {
+//         // id: 1,
+//         description: "Agua",
+//         value: -10000,
+//         date: "29/01/2021"
+//     },
+//     {
+//         // id: 2,
+//         description: "Suellen",
+//         value: 300012,
+//         date: "29/01/2021"
+//     },
+//     {
+//         // id: 3,
+//         description: "Internet",
+//         value: -10000,
+//         date: "29/01/2021"
+//     },
+//     {
+//         // id: 4,
+//         description: "Servico de Streaming",
+//         value: -10000,
+//         date: "29/01/2021"
+//     },
+//     {
+//         // id: 5,
+//         description: "Natan",
+//         value: 104500,
+//         date: "30/01/2021"
+//     },
+// ]
 
 const Transaction = {
-    all: transactions,
+    all: Storage.get(),
 
     add(transaction) {
         Transaction.all.push(transaction)
         
+        App.reload()
+    },
+
+    remove(index) {
+        Transaction.all.splice(index, 1)
+
         App.reload()
     },
 
@@ -91,12 +108,6 @@ const Dom = {
         Dom.transactionsContainer.appendChild(tr)
     },
 
-    remove(index) {
-        Transaction.all.splice(index, 1)
-
-        App.reload()
-    },
-
     innerHTMLTransaction(transaction, index) {
         const status = transaction.value > 0 ? "income" : "expense"
         const value = Utils.formatCurrency(transaction.value)
@@ -104,7 +115,9 @@ const Dom = {
             <td class="description">${transaction.description}</td>
             <td class="${status}">${value}</td>
             <td class="date">${transaction.date}</td>
-            <td><img onclick="Transaction.remove(${index})" src="./src/img/svg/minus.svg" alt="Remover Transação"></td>
+            <td>
+            <img onclick="Transaction.remove(${index})" src="./src/img/svg/minus.svg" alt="Remover Transação">
+            </td>
         `
         return html
     },
@@ -223,11 +236,13 @@ const Form = {
 
 const App = {
     init(){
-        transactions.forEach(function(transaction, index) {
+        Transaction.all.forEach(function(transaction, index) {
             Dom.addTransaction(transaction, index)
         })
         
         Dom.updateBalance()
+
+        Storage.set(Transaction.all)
     },
     reload(){
         Dom.clearTransactions()
