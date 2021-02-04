@@ -176,7 +176,7 @@ const Form = {
     valor: document.querySelector("input#valor"),
     date: document.querySelector("input#date"),
 
-    getValues() {
+    getValues() { // Pegando os valores que estao dentro do input
         return {
             description: this.description.value,
             value: this.valor.value,
@@ -192,7 +192,7 @@ const Form = {
         }
     },
 
-    formatValues() {
+    formatValues() { // Formatando os valores
         let { description, value, date } = this.getValues()
 
         value = Utils.formatValor(value)
@@ -202,14 +202,13 @@ const Form = {
         console.log(value)
 
         return { description, value, date }
-        
     },
 
-    saveTransaction(transaction) {
+    saveTransaction(transaction) { // Salvando as informacoes
         Transaction.add(transaction)
     },
 
-    clearFieldes() {
+    clearFieldes() { // Apagando os dados do formulario
         this.description.value = ""
         this.valor.value = ""
         this.date.value = ""
@@ -221,12 +220,16 @@ const Form = {
         try {
             // validar dados do formulario
             this.validateFildes()
+
             // formatar os dados para Salvar
             const transaction = this.formatValues()
+
             // salvar
             this.saveTransaction(transaction)
+
             // apagar os dados do formulario
             this.clearFieldes()
+
             // fechar modal
             Modal.openClose()
             
