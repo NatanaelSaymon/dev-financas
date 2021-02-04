@@ -4,9 +4,10 @@ const Modal = {
     }
 }
 
-//Salvando os dados no localStorage
+// Salvando os dados no localStorage
 const Storage = {
-    get () {
+
+    get() {
         return JSON.parse(localStorage.getItem("dev.finances:transactions")) || []
     },
 
@@ -50,6 +51,7 @@ const Storage = {
 // ]
 
 const Transaction = {
+
     all: Storage.get(),
 
     add(transaction) {
@@ -64,39 +66,40 @@ const Transaction = {
         App.reload()
     },
 
-    incomes() { //somar as entradas
-        //pegar todas as transacoes
-        let income = 0 //variavel que recebera os valores
+    incomes() { // somar as entradas
+        // pegar todas as transacoes
+        let income = 0 // variavel que recebera os valores
 
-        Transaction.all.forEach((transaction) => { //para cada transacao
-            if (transaction.value > 0) { //se ela for maior que 0
-                income = income + transaction.value //somar a uma variavel
+        Transaction.all.forEach((transaction) => { // para cada transacao
+            if (transaction.value > 0) { // se ela for maior que 0
+                income = income + transaction.value // somar a uma variavel
             }
         })
 
-        return income //retornar a variavel
+        return income // retornar a variavel
     },
 
-    expenses() { //somar as saidas
-        //pegar todas as transacoes
-        let expenses = 0//variavel que recebera os valores
+    expenses() { // somar as saidas
+        // pegar todas as transacoes
+        let expenses = 0 // variavel que recebera os valores
 
-        Transaction.all.forEach((transaction) => { //para cada transacao
-            if(transaction.value < 0) { //se ela for menor que 0
-                expenses = expenses + transaction.value //somar a uma variavel
+        Transaction.all.forEach((transaction) => { // para cada transacao
+            if(transaction.value < 0) { // se ela for menor que 0
+                expenses = expenses + transaction.value // somar a uma variavel
             }
         })
 
-        return expenses //retornar a variavel
+        return expenses // retornar a variavel
     },
     
-    total() { //entradas - saidas
+    total() { // entradas - saidas
         let total = this.incomes() + this.expenses()
         return total
     }
 }
 
 const Dom = {
+
     transactionsContainer: document.querySelector(".transactions__table, tbody"),
 
     addTransaction(transaction, index) {
@@ -110,14 +113,17 @@ const Dom = {
     },
 
     innerHTMLTransaction(transaction, index) {
+
         const status = transaction.value > 0 ? "income" : "expense"
+
         const value = Utils.formatCurrency(transaction.value)
+
         const html = `
             <td class="description">${transaction.description}</td>
             <td class="${status}">${value}</td>
             <td class="date">${transaction.date}</td>
             <td>
-                <img onclick="Transaction.remove(${index})" src="./src/img/svg/minus.svg" alt="Remover Transação">
+                <img onclick="Transaction.remove( ${index} )" src="./src/img/svg/minus.svg" alt="Remover Transação">
             </td>
         `
 
@@ -125,6 +131,7 @@ const Dom = {
     },
 
     updateBalance() {
+
         document.querySelector("#incomeDisplay").innerHTML = Utils.formatCurrency(Transaction.incomes())
 
         document.querySelector("#expenseDisplay").innerHTML = Utils.formatCurrency(Transaction.expenses())
@@ -138,13 +145,16 @@ const Dom = {
 }
 
 const Utils = {
+
     formatValor(valor) {
         valor = Number(valor) * 100
+        
         return valor
     },
 
     formatDate(date) {
         const splittedDate = date.split("-")
+        
         return `${splittedDate[2]}/${splittedDate[1]}/${splittedDate[0]}`
     },
 
@@ -159,7 +169,7 @@ const Utils = {
 
         return signal + value 
 
-        //console.log(signal + value)
+        // console.log(signal + value)
     }
 }
 
@@ -240,6 +250,7 @@ const Form = {
 }
 
 const App = {
+
     init(){
         Transaction.all.forEach(function(transaction, index) {
             Dom.addTransaction(transaction, index)
@@ -249,10 +260,11 @@ const App = {
 
         Storage.set(Transaction.all)
     },
+
     reload(){
         Dom.clearTransactions()
         App.init()
-    },
+    }
 }
 
 App.init()
